@@ -309,9 +309,9 @@ h2 {
     }
 
     .hero h1 {
-        font-size: 1.9rem;        /* smaller, controlled */
-        line-height: 1.15;        /* tighter vertical rhythm */
-        word-break: break-word;   /* allow long names to wrap */
+        font-size: 1.9rem;       
+        line-height: 1.15;        
+        word-break: normal;   
         hyphens: auto;
     }
 
@@ -382,3 +382,4 @@ h2 {
         font-size: 0.75rem;
     }
 }
+
