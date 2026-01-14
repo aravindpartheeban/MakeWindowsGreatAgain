@@ -33,6 +33,7 @@ body {
     background: radial-gradient(circle at top, #0f1b24, var(--bg-main) 60%);
     color: var(--text-main);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 img {
@@ -294,4 +295,90 @@ h2 {
     border-top: 1px solid var(--border);
     color: var(--text-muted);
     font-size: 0.7rem;
+}
+
+/* =========================
+   MOBILE TUNING
+   ========================= */
+
+@media (max-width: 768px) {
+
+    /* Hero */
+    .hero {
+        padding: 64px 20px 32px;
+    }
+
+    .hero h1 {
+        font-size: 1.9rem;        /* smaller, controlled */
+        line-height: 1.15;        /* tighter vertical rhythm */
+        word-break: break-word;   /* allow long names to wrap */
+        hyphens: auto;
+    }
+
+    .tagline {
+        font-size: 1.1rem;
+    }
+
+    .cta {
+        margin-top: 20px;
+    }
+
+    /* Sections */
+    section {
+        margin-top: 40px;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+        margin-bottom: 16px;
+    }
+
+    /* Feature cards */
+    .card {
+        padding: 20px;
+    }
+
+    .card h3 {
+        font-size: 1rem;
+    }
+
+    /* Carousel */
+    .shot {
+        flex: 0 0 95%;
+        max-width: 95%;
+        padding: 12px;
+    }
+
+    .shot figcaption {
+        font-size: 0.85rem;
+    }
+
+    .carousel-wrapper {
+        gap: 16px;
+    }
+
+    .carousel-controls {
+        gap: 12px;
+    }
+
+    .carousel-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+    }
+
+    /* Project intent */
+    .about {
+        margin-top: 32px;
+    }
+
+    .text-about {
+        padding: 0 4px;
+    }
+
+    /* Footer */
+    .footer {
+        margin-top: 40px;
+        font-size: 0.75rem;
+    }
 }
