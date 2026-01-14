@@ -1,0 +1,541 @@
+{
+  "WPFTweaksPowershell7Tele": {
+    "Content": "Disable Powershell 7 Telemetry",
+    "Description": "Disables Powershell 7 Telemetry Data.",
+    "category": "Privacy",
+    "panel": "Privacy",
+    "InvokeScript": [
+      "[Environment]::SetEnvironmentVariable('POWERSHELL_TELEMETRY_OPTOUT', '1', 'Machine')"
+    ]
+  },
+  "WPFTweaksConsumerFeatures": {
+    "Content": "Disable Consumer Features",
+    "Description": "Prevents Windows from automatically installing unwanted apps, games, and links.",
+    "category": "Privacy",
+    "panel": "Privacy",
+    "registry": [
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
+        "Name": "DisableWindowsConsumerFeatures",
+        "Value": "1",
+        "Type": "DWord"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
+        "Name": "DisableConsumerAccountStateContent",
+        "Value": "1",
+        "Type": "DWord"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
+        "Name": "DisableCloudOptimizedContent",
+        "Value": "1",
+        "Type": "DWord"
+      }
+    ]
+  },
+  "WPFTweaksTelemetry": {
+    "Content": "Disable Telemetry",
+    "Description": "Disables Windows Telemetry and Data Collection.",
+    "category": "Privacy",
+    "panel": "Privacy",
+    "registry": [
+      {
+        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\DataCollection",
+        "Name": "AllowTelemetry",
+        "Value": "0",
+        "Type": "DWord"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
+        "Name": "AllowTelemetry",
+        "Value": "0",
+        "Type": "DWord"
+      },
+      {
+        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+        "Name": "ContentDeliveryAllowed",
+        "Value": "0",
+        "Type": "DWord"
+      }
+    ],
+    "ScheduledTask": [
+        { "Name": "Microsoft\\Windows\\Customer Experience Improvement Program\\Consolidator", "State": "Disabled" },
+        { "Name": "Microsoft\\Windows\\Customer Experience Improvement Program\\UsbCeip", "State": "Disabled" },
+        { "Name": "Microsoft\\Windows\\Customer Experience Improvement Program\\KernelCeipTask", "State": "Disabled" },
+        { "Name": "Microsoft\\Windows\\Application Experience\\Microsoft Compatibility Appraiser", "State": "Disabled" },
+        { "Name": "Microsoft\\Windows\\Application Experience\\ProgramDataUpdater", "State": "Disabled" }
+    ],
+    "service": [
+        { "Name": "DiagTrack", "StartupType": "Disabled" },
+        { "Name": "dmwappushservice", "StartupType": "Disabled" }
+    ]
+  },
+  "WPFTweaksActivity": {
+    "Content": "Disable Activity History",
+    "Description": "Prevents Windows from collecting activity history.",
+    "category": "Privacy",
+    "panel": "Privacy",
+    "registry": [
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+        "Name": "EnableActivityFeed",
+        "Value": "0",
+        "Type": "DWord"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+        "Name": "PublishUserActivities",
+        "Value": "0",
+        "Type": "DWord"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+        "Name": "UploadUserActivities",
+        "Value": "0",
+        "Type": "DWord"
+      }
+    ]
+  },
+  "WPFTweaksLocation": {
+    "Content": "Disable Location Tracking",
+    "Description": "Disables system-wide location services.",
+    "category": "Privacy",
+    "panel": "Privacy",
+    "registry": [
+      {
+        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\location",
+        "Name": "Value",
+        "Value": "Deny",
+        "Type": "String"
+      }
+    ],
+    "service": [
+        { "Name": "lfsvc", "StartupType": "Disabled" }
+    ]
+  },
+"WPFTweaksDisableCopilot": {
+  "Content": "Disable Copilot (Windows + Edge)",
+  "Description": "Disables Microsoft Copilot across Windows and Microsoft Edge, including Copilot 365, Edge Copilot UI, and browsing context sharing.",
+  "category": "Privacy",
+  "panel": "Privacy",
+  "registry": [
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsCopilot",
+      "Name": "TurnOffWindowsCopilot",
+      "Value": "1",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsCopilot",
+      "Name": "TurnOffWindowsCopilot",
+      "Value": "1",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKCU:\\Software\\Microsoft\\Windows\\Shell\\Copilot\\BingChat",
+      "Name": "IsUserEligible",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Notifications\\Settings",
+      "Name": "AutoOpenCopilotLargeScreens",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+      "Name": "ShowCopilotButton",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "HubsSidebarEnabled",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "StandaloneHubsSidebarEnabled",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "NewTabPageBingChatEnabled",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "EdgeDiscoverEnabled",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "DiscoverPageContextEnabled",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "CopilotPageContext",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "CopilotCDPPageContext",
+      "Value": "0",
+      "Type": "DWord"
+    }
+  ]
+},
+  "WPFTweaksDVR": {
+    "Content": "Disable GameDVR",
+    "Description": "Disables GameDVR (Xbox Game Bar recording).",
+    "category": "Privacy",
+    "panel": "Privacy",
+    "registry": [
+      {
+        "Path": "HKCU:\\System\\GameConfigStore",
+        "Name": "GameDVR_Enabled",
+        "Value": "0",
+        "Type": "DWord"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\GameDVR",
+        "Name": "AllowGameDVR",
+        "Value": "0",
+        "Type": "DWord"
+      }
+    ]
+  },
+"WPFTweaksSearchPrivacy": {
+  "Content": "Harden Windows Search",
+  "Description": "Prevents Windows Search from sending queries, device data, and usage metadata to Microsoft while preserving fast local search functionality.",
+  "category": "Privacy",
+  "panel": "Privacy",
+  "registry": [
+    {
+      "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
+      "Name": "BingSearchEnabled",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
+      "Name": "AllowSearchToUseLocation",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
+      "Name": "SearchboxTaskbarMode",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+      "Name": "AllowCloudSearch",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+      "Name": "DisableWebSearch",
+      "Value": "1",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+      "Name": "ConnectedSearchUseWeb",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+      "Name": "ConnectedSearchUseWebOverMeteredConnections",
+      "Value": "0",
+      "Type": "DWord"
+    }
+  ]
+},
+  "WPFToggleStartMenuRecommendations": {
+    "Content": "Disable Start Menu Recommendations",
+    "Description": "Removes 'Recommended' section from Start Menu.",
+    "category": "Privacy",
+    "panel": "Privacy",
+    "registry": [
+       {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer",
+        "Name": "HideRecommendedSection",
+        "Value": "1",
+        "Type": "DWord"
+      }
+    ]
+  },
+"WPFTweaksWidgetsPrivacy": {
+  "Content": "Disable Widgets & Web Feeds",
+  "Description": "Disables Windows Widgets, including background services and web-based news feeds, to prevent unnecessary network requests and data collection.",
+  "category": "Privacy",
+  "panel": "Privacy",
+  "registry": [
+    {
+      "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+      "Name": "TaskbarDa",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Dsh",
+      "Name": "AllowNewsAndInterests",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Feeds",
+      "Name": "EnableFeeds",
+      "Value": "0",
+      "Type": "DWord"
+    }
+  ]
+},
+"WPFTweaksEdgePrivacy": {
+  "Content": "Harden Edge Privacy",
+  "Description": "Reduces Microsoft Edge telemetry, ads, tracking, cloud services, and UX noise while keeping Edge fully functional and update-safe. Edge Copilot is excluded.",
+  "category": "Privacy",
+  "panel": "Privacy",
+  "registry": [
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "DiagnosticData",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "MetricsReportingEnabled",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "SendSiteInfoToImproveServices",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "UserFeedbackAllowed",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "ShowRecommendationsEnabled",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "BingAdsSuppression",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "PromotionalTabsEnabled",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "MicrosoftEdgeInsiderPromotionEnabled",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "SpotlightExperiencesAndRecommendationsEnabled",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "ShowMicrosoftRewards",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "TrackingPrevention",
+      "Value": "3",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "BlockThirdPartyCookies",
+      "Value": "1",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "ConfigureDoNotTrack",
+      "Value": "1",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "StartupBoostEnabled",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "SearchSuggestEnabled",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "ResolveNavigationErrorsUseWebService",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "RelatedMatchesCloudServiceEnabled",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "EdgeShoppingAssistantEnabled",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "EdgeCollectionsEnabled",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "EdgeFollowEnabled",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+      "Name": "ExperimentationAndConfigurationServiceControl",
+      "Value": "0",
+      "Type": "DWord"
+    }
+  ]
+},
+  "WPFTweaksStoreAds": {
+    "Content": "Disable Advertising ID",
+    "Description": "Prevents apps from using your advertising ID for experiences across apps.",
+    "category": "Privacy",
+    "panel": "Privacy",
+    "registry": [
+      {
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo",
+        "Name": "Enabled",
+        "Value": "0",
+        "Type": "DWord"
+      }
+    ]
+  },
+  "WPFTweaksTailored": {
+    "Content": "Disable Tailored Experiences",
+    "Description": "Prevents Windows from using diagnostic data to provide tailored experiences.",
+    "category": "Privacy",
+    "panel": "Privacy",
+    "registry": [
+      {
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Privacy",
+        "Name": "TailoredExperiencesWithDiagnosticDataEnabled",
+        "Value": "0",
+        "Type": "DWord"
+      }
+    ]
+  },
+  "WPFTweaksInputPersonalization": {
+    "Content": "Disable Typing Insights",
+    "Description": "Disables typing and handwriting data collection and insights.",
+    "category": "Privacy",
+    "panel": "Privacy",
+    "registry": [
+      {
+        "Path": "HKCU:\\Software\\Microsoft\\InputPersonalization",
+        "Name": "RestrictImplicitTextCollection",
+        "Value": "1",
+        "Type": "DWord"
+      },
+      {
+        "Path": "HKCU:\\Software\\Microsoft\\InputPersonalization",
+        "Name": "RestrictImplicitInkCollection",
+        "Value": "1",
+        "Type": "DWord"
+      },
+      {
+        "Path": "HKCU:\\Software\\Microsoft\\InputPersonalization\\TrainedDataStore",
+        "Name": "HarvestContacts",
+        "Value": "0",
+        "Type": "DWord"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\InputPersonalization",
+        "Name": "AllowInputInsights",
+        "Value": "0",
+        "Type": "DWord"
+      }
+    ]
+  },
+  "WPFTweaksFeedback": {
+    "Content": "Disable Feedback Prompts",
+    "Description": "Disables the 'Windows should ask for my feedback' prompts.",
+    "category": "Privacy",
+    "panel": "Privacy",
+    "registry": [
+      {
+        "Path": "HKCU:\\Software\\Microsoft\\Siuf\\Rules",
+        "Name": "NumberOfSIUFInPeriod",
+        "Value": "0",
+        "Type": "DWord"
+      },
+      {
+        "Path": "HKCU:\\Software\\Microsoft\\Siuf\\Rules",
+        "Name": "PeriodInNanoSeconds",
+        "Value": "0",
+        "Type": "QWord"
+      }
+    ]
+  },
+  "WPFTweaksRecall": {
+    "Content": "Disable Recall (AI Timeline)",
+    "Description": "Disables the Windows Recall (AI Timeline) feature which screenshots your activity.",
+    "category": "Privacy",
+    "panel": "Privacy",
+    "registry": [
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsAI",
+        "Name": "DisableAIDataAnalysis",
+        "Value": "1",
+        "Type": "DWord"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsAI",
+        "Name": "DisableRecall",
+        "Value": "1",
+        "Type": "DWord"
+      }
+    ]
+  }
+}

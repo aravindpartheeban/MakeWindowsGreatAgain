@@ -1,0 +1,114 @@
+{
+  "repair_tools": {
+    "title": "Network Repair Tools",
+    "description": "Safe tools to fix common networking issues. These make temporary changes or reset components.",
+    "items": {
+      "flush_dns": {
+        "label": "Flush DNS Cache",
+        "type": "command",
+        "script": "ipconfig /flushdns",
+        "requires_admin": true
+      },
+      "reset_winsock": {
+        "label": "Reset Winsock",
+        "type": "command",
+        "script": "netsh winsock reset",
+        "requires_admin": true,
+        "requires_reboot": true
+      },
+      "reset_tcpip": {
+        "label": "Reset TCP/IP Stack",
+        "type": "command",
+        "script": "netsh int ip reset",
+        "requires_admin": true,
+        "requires_reboot": true
+      }
+    }
+  },
+
+  "gaming_latency": {
+    "title": "Gaming / Low-Latency Scheduling",
+    "description": "Improves responsiveness for games and real-time workloads. Does not increase raw bandwidth.",
+    "items": {
+      "disable_network_throttling": {
+        "label": "Disable Network Throttling",
+        "type": "registry",
+        "path": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile",
+        "name": "NetworkThrottlingIndex",
+        "value_type": "DWORD",
+        "value": "0xffffffff",
+        "requires_admin": true,
+        "recommended": true
+      },
+      "maximize_system_responsiveness": {
+        "label": "Maximize System Responsiveness",
+        "type": "registry",
+        "path": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile",
+        "name": "SystemResponsiveness",
+        "value_type": "DWORD",
+        "value": "0",
+        "requires_admin": true,
+        "recommended": true
+      },
+      "optimize_games_task_scheduling": {
+        "label": "Optimize Game Task Scheduling",
+        "type": "registry_group",
+        "path": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games",
+        "entries": {
+          "GPU Priority": {
+            "value_type": "DWORD",
+            "value": "8"
+          },
+          "Priority": {
+            "value_type": "DWORD",
+            "value": "6"
+          },
+          "Scheduling Category": {
+            "value_type": "STRING",
+            "value": "High"
+          },
+          "SFIO Priority": {
+            "value_type": "STRING",
+            "value": "High"
+          }
+        },
+        "requires_admin": true,
+        "recommended": true
+      }
+    }
+  },
+
+  "tcp_stack_advanced": {
+    "title": "Advanced TCP/IP Stack Tweaks",
+    "description": "Advanced networking tweaks. These may help in specific scenarios but can reduce performance on modern networks.",
+    "advanced": true,
+    "items": {
+      "disable_tcp_autotuning": {
+        "label": "Disable TCP Auto-Tuning",
+        "type": "command",
+        "script": "netsh int tcp set global autotuninglevel=disabled",
+        "requires_admin": true,
+        "warning": "May reduce download speeds on modern networks."
+      },
+      "enable_rss": {
+        "label": "Enable Receive-Side Scaling (RSS)",
+        "type": "command",
+        "script": "netsh int tcp set global rss=enabled",
+        "requires_admin": true
+      },
+      "disable_tcp_chimney": {
+        "label": "Disable TCP Chimney Offload",
+        "type": "command",
+        "script": "netsh int tcp set global chimney=disabled",
+        "requires_admin": true
+      },
+      "disable_ecn": {
+        "label": "Disable Explicit Congestion Notification (ECN)",
+        "type": "command",
+        "script": "netsh int tcp set global ecncapability=disabled",
+        "requires_admin": true,
+        "warning": "Compatibility tweak for problematic routers."
+      }
+    }
+  }
+}
