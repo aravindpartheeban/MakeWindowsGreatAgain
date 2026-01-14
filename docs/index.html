@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MakeWindowsGreatAgain</title>
+
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>MakeWindowsGreatAgain</h1>
+            <p class="tagline">
+                Fixing Windows, since Microsoft won’t.
+            </p>
+
+            <div class="cta">
+                <a href="https://github.com/yourusername/MakeWindowsGreatAgain/releases/latest"
+                   class="btn primary">
+                    Download latest release
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- CORE FEATURES -->
+        <section class="features">
+            <h2>Core Features</h2>
+
+            <div class="feature-grid">
+                <div class="card">
+                    <h3>📊 Dashboard</h3>
+                    <p>
+                        Overview of your system — hardware, OS,
+                        and quick access to sections.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>🔽 Install Apps</h3>
+                    <p>
+                        Uses Winget to install common applications
+                        cleanly and silently.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>⚙ Tweaks</h3>
+                    <p>
+                        Performance, UI, and system behavior tweaks
+                        with measurable impact.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>🔒 Privacy</h3>
+                    <p>
+                        Disables telemetry, ads, tracking IDs,
+                        and unnecessary background services.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>🧹 Debloat</h3>
+                    <p>
+                        Removes preinstalled applications
+                        and optional components you don’t use.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>🌐 Network</h3>
+                    <p>
+                        DNS configuration and basic network
+                        repair tools.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+<!-- SCREENSHOTS -->
+<section class="screenshots">
+    <h2>Clear by design</h2>
+    <p class="screenshots-subtitle">
+        No clutter. No ambiguity.
+    </p>
+
+    <div class="carousel-wrapper">
+        <div class="carousel">
+            <div class="carousel-track">
+                <figure class="shot">
+                    <img src="images/dashboard.png" alt="Dashboard overview">
+                    <figcaption>Dashboard - system info and quick actions.</figcaption>
+                </figure>
+
+                <figure class="shot">
+                    <img src="images/install_apps.png" alt="Install Apps screen">
+                    <figcaption>Install Apps - Winget, curated, silent.</figcaption>
+                </figure>
+
+                <figure class="shot">
+                    <img src="images/tweaks.png" alt="Tweaks screen">
+                    <figcaption>Tweaks - performance and UI tweaks.</figcaption>
+                </figure>
+
+                <figure class="shot">
+                    <img src="images/privacy.png" alt="Privacy screen">
+                    <figcaption>Privacy - telemetry and ads disabled.</figcaption>
+                </figure>
+
+                <figure class="shot">
+                    <img src="images/debloat.png" alt="Debloat screen">
+                    <figcaption>Debloat - uninstall bloatware.</figcaption>
+                </figure>
+
+                <figure class="shot">
+                    <img src="images/network.png" alt="Network tools">
+                    <figcaption>Network - configuration and fixes.</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="carousel-controls">
+            <button class="carousel-btn left" aria-label="Previous screenshot">
+                &#10094;
+            </button>
+            <button class="carousel-btn right" aria-label="Next screenshot">
+                &#10095;
+            </button>
+        </div>
+    </div>
+</section>
+
+        <!-- PROJECT INTENT -->
+        <section class="about">
+            <h2>Project Intent</h2>
+            <div class="text-about">
+                <p>
+                    Windows used to be an operating system.
+                    Now it’s an ad surface, telemetry platform,
+                    and experiment pipeline - with an OS attached.
+                    <br><br>
+                    This tool removes the noise,
+                    disables what shouldn’t be there,
+                    and leaves you with a system that focuses
+                    on performance and control.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>
+            Not affiliated with Microsoft, obviously.<br>
+            Created and maintained by Aravind Partheeban.
+        </p>
+    </footer>
+
+    <!-- CAROUSEL SCRIPT -->
+    <script>
+        const track = document.querySelector('.carousel-track');
+        const prevBtn = document.querySelector('.carousel-btn.left');
+        const nextBtn = document.querySelector('.carousel-btn.right');
+
+        function scrollBySlide(direction) {
+            const slide = track.querySelector('.shot');
+            const slideWidth = slide.offsetWidth + 24;
+            track.scrollBy({
+                left: direction * slideWidth,
+                behavior: 'smooth'
+            });
+        }
+
+        prevBtn.addEventListener('click', () => scrollBySlide(-1));
+        nextBtn.addEventListener('click', () => scrollBySlide(1));
+    </script>
+</body>
+</html>

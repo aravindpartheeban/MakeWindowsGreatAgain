@@ -1,0 +1,297 @@
+/* =========================
+   THEME VARIABLES
+   ========================= */
+
+:root {
+    --bg-main: #0e1116;
+    --bg-card: rgba(255, 255, 255, 0.05);
+    --bg-card-hover: rgba(255, 255, 255, 0.07);
+
+    --border: rgba(255, 255, 255, 0.08);
+
+    --text-main: #e6e9ee;
+    --text-muted: #a0a7b4;
+
+    --accent: #00e5d8;
+    --accent-2: #6a5cff;
+
+    --radius: 14px;
+    --blur: blur(14px);
+}
+
+/* =========================
+   RESET & BASE
+   ========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Inter", system-ui, sans-serif;
+    background: radial-gradient(circle at top, #0f1b24, var(--bg-main) 60%);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+    padding: 88px 24px 40px; /* fixed double semicolon */
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: clamp(2.6rem, 5vw, 3.6rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.tagline {
+    margin-top: 16px;
+    font-size: 1.25rem;
+    color: var(--text-muted);
+}
+
+/* =========================
+   BUTTONS
+   ========================= */
+
+.cta {
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    padding: 14px 22px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn.primary {
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #000;
+    box-shadow: 0 10px 30px rgba(0, 229, 216, 0.25);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* =========================
+   MAIN LAYOUT
+   ========================= */
+
+.container {
+    max-width: 1150px;
+    padding: 0 24px 72px;
+    margin: 0 auto;
+}
+
+/* Tighter global spacing */
+section {
+    margin-top: 48px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Remove extra gap after hero */
+.hero + .container > section:first-child {
+    margin-top: 16px;
+}
+
+/* =========================
+   FEATURES GRID
+   ========================= */
+
+.features {
+    margin-top: 40px; /* reduced from 72px */
+    text-align: center;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background: var(--bg-card);
+    backdrop-filter: var(--blur);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--accent);
+}
+
+.card h3 {
+    margin: 0 0 10px;
+    font-size: 1.1rem;
+}
+
+.card p {
+    margin: 0;
+    color: var(--text-muted);
+}
+
+/* =========================
+   SCREENSHOTS / CAROUSEL
+   ========================= */
+
+.screenshots {
+    margin-top: 40px; /* reduced */
+    text-align: center;
+}
+
+.screenshots-subtitle {
+    max-width: 720px;
+    margin: 0 auto 32px;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
+/* Explicitly tighten features → screenshots gap */
+.features + .screenshots {
+    margin-top: 32px;
+}
+
+/* Carousel layout */
+.carousel-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.carousel {
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+    scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.shot {
+    flex: 0 0 85%;
+    max-width: 85%;
+    scroll-snap-align: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+}
+
+@media (min-width: 900px) {
+    .shot {
+        flex: 0 0 70%;
+        max-width: 70%;
+    }
+}
+
+.shot img {
+    border-radius: 10px;
+}
+
+.shot figcaption {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+/* Carousel controls */
+.carousel-controls {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+.carousel-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.carousel-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-1px);
+}
+
+/* =========================
+   PROJECT INTENT
+   ========================= */
+
+.about {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.text-about {
+    max-width: 760px;
+    margin: 12px auto 0;
+    text-align: left;
+}
+
+.text-about p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.45;
+    color: var(--text-muted);
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.footer {
+    padding: 32px 24px;
+    margin-top: 48px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.7rem;
+}
