@@ -17,13 +17,22 @@
         <div class="hero-content">
             <h1>MakeWindows<wbr>GreatAgain</h1>
             <p class="tagline">
-                Fixing Windows, since Microsoft won’t.
+                An open-source Windows optimization toolkit.
             </p>
 
             <div class="cta">
-                <a href="https://github.com/aravindpartheeban/MakeWindowsGreatAgain/releases/download/latest/MakeWindowsGreatAgain_V1.0.zip"
-                   class="btn primary">
-                    Download latest release
+                <a
+                    href="https://github.com/aravindpartheeban/MakeWindowsGreatAgain/releases/download/v1.1/MakeWindowsGreatAgain_V1.1.zip"
+                    class="btn primary"
+                >
+                    Download v1.1
+                </a>
+
+                <a
+                    href="https://github.com/aravindpartheeban/MakeWindowsGreatAgain/blob/main/src/MakeWindowsGreatAgain.ps1"
+                    class="btn secondary"
+                >
+                    View source
                 </a>
             </div>
         </div>
@@ -40,7 +49,7 @@
                     <h3>📊 Dashboard</h3>
                     <p>
                         Overview of your system — hardware, OS,
-                        and quick access to sections.
+                        and quick access to all sections.
                     </p>
                 </div>
 
@@ -63,7 +72,7 @@
                 <div class="card">
                     <h3>🔒 Privacy</h3>
                     <p>
-                        Disables telemetry, ads, tracking IDs,
+                        Reduces telemetry, ads, tracking IDs,
                         and unnecessary background services.
                     </p>
                 </div>
@@ -86,72 +95,86 @@
             </div>
         </section>
 
-<!-- SCREENSHOTS -->
-<section class="screenshots">
-    <h2>Clear by design</h2>
-    <p class="screenshots-subtitle">
-        No clutter. No ambiguity.
-    </p>
+        <!-- SCREENSHOTS -->
+        <section class="screenshots">
+            <h2>Clear by design</h2>
+            <p class="screenshots-subtitle">
+                No clutter. No ambiguity.
+            </p>
 
-    <div class="carousel-wrapper">
-        <div class="carousel">
-            <div class="carousel-track">
-                <figure class="shot">
-                    <img src="images/dashboard.png" alt="Dashboard overview">
-                    <figcaption>Dashboard - system info and quick actions.</figcaption>
-                </figure>
+            <div class="carousel-wrapper">
+                <div class="carousel">
+                    <div class="carousel-track">
+                        <figure class="shot">
+                            <img src="images/dashboard.png" alt="Dashboard overview">
+                            <figcaption>Dashboard - system info and quick actions.</figcaption>
+                        </figure>
 
-                <figure class="shot">
-                    <img src="images/install_apps.png" alt="Install Apps screen">
-                    <figcaption>Install Apps - Winget, curated, silent.</figcaption>
-                </figure>
+                        <figure class="shot">
+                            <img src="images/install_apps.png" alt="Install Apps screen">
+                            <figcaption>Install Apps - Winget, curated, silent.</figcaption>
+                        </figure>
 
-                <figure class="shot">
-                    <img src="images/tweaks.png" alt="Tweaks screen">
-                    <figcaption>Tweaks - performance and UI tweaks.</figcaption>
-                </figure>
+                        <figure class="shot">
+                            <img src="images/tweaks.png" alt="Tweaks screen">
+                            <figcaption>Tweaks - performance and UI tuning.</figcaption>
+                        </figure>
 
-                <figure class="shot">
-                    <img src="images/privacy.png" alt="Privacy screen">
-                    <figcaption>Privacy - telemetry and ads disabled.</figcaption>
-                </figure>
+                        <figure class="shot">
+                            <img src="images/privacy.png" alt="Privacy screen">
+                            <figcaption>Privacy - telemetry and ads disabled.</figcaption>
+                        </figure>
 
-                <figure class="shot">
-                    <img src="images/debloat.png" alt="Debloat screen">
-                    <figcaption>Debloat - uninstall bloatware.</figcaption>
-                </figure>
+                        <figure class="shot">
+                            <img src="images/debloat.png" alt="Debloat screen">
+                            <figcaption>Debloat - remove what you don’t use.</figcaption>
+                        </figure>
 
-                <figure class="shot">
-                    <img src="images/network.png" alt="Network tools">
-                    <figcaption>Network - configuration and fixes.</figcaption>
-                </figure>
+                        <figure class="shot">
+                            <img src="images/network.png" alt="Network tools">
+                            <figcaption>Network - configuration and fixes.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <div class="carousel-controls">
+                    <button class="carousel-btn left" aria-label="Previous screenshot">
+                        &#10094;
+                    </button>
+                    <button class="carousel-btn right" aria-label="Next screenshot">
+                        &#10095;
+                    </button>
+                </div>
             </div>
-        </div>
-
-        <div class="carousel-controls">
-            <button class="carousel-btn left" aria-label="Previous screenshot">
-                &#10094;
-            </button>
-            <button class="carousel-btn right" aria-label="Next screenshot">
-                &#10095;
-            </button>
-        </div>
-    </div>
-</section>
+        </section>
 
         <!-- PROJECT INTENT -->
         <section class="about">
             <h2>Project Intent</h2>
             <div class="text-about">
                 <p>
-                    Windows used to be an operating system.
-                    Now it’s an ad surface, telemetry platform,
-                    and experiment pipeline - with an OS attached.
+                    MakeWindowsGreatAgain is a fully open-source project.
+                    Both the PowerShell source script and the compiled
+                    executable are available in the same repository.
                     <br><br>
-                    This tool removes the noise,
-                    disables what shouldn’t be there,
-                    and leaves you with a system that focuses
-                    on performance and control.
+                    Windows has evolved beyond a traditional operating system,
+                    incorporating advertising, telemetry, and continuous
+                    experimentation. This project exists to reduce that noise
+                    and restore user control.
+                </p>
+            </div>
+        </section>
+
+        <!-- CHANGELOG -->
+        <section class="changelog">
+            <h2>Changelog</h2>
+            <div class="text-about">
+                <p>
+                    <strong>v1.1</strong><br>
+                    • Added dry-run mode for Tweaks and Privacy sections,
+                      allowing users to preview changes without applying them.<br>
+                    • Minor bug fixes across multiple modules.<br>
+                    • General performance and stability improvements.
                 </p>
             </div>
         </section>
@@ -186,5 +209,3 @@
     </script>
 </body>
 </html>
-
-
